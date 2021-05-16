@@ -1,0 +1,19 @@
+table {
+  border: 1px solid black;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  padding: 0.5em 0.3em 0.5em 0;
+}
+
+tr.file-row:hover {
+  background-color: lightblue;
+}
+
+tr.file-row:checked {
+  background-color: red;
+  color: red;
+}
+

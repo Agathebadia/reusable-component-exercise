@@ -1,0 +1,29 @@
+<table>
+  <colgroup>
+    <col>
+    <col span="1" >
+    <col span="1" >
+    <col span="1" >
+    <col span="1" >
+  </colgroup>
+  <thead>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>Selected 0</td>
+      <td>Download Selected</td>
+      <td colspan="2"></td>
+    </tr>
+    <tr>
+      <th scope="col" ></th>
+      <th scope="col" >Name</th>
+      <th scope="col" >Device</th>
+      <th scope="col" >Path</th>
+      <th scope="col" >Status</th>
+    </tr>
+  </thead>
+  {{#each @files as |file|}}
+    <tr class="file-row">
+      <File @file={{file}} />
+    </tr>
+  {{/each}}
+</table>

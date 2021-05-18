@@ -6,28 +6,38 @@ export default class FilesComponent extends Component {
 
   @tracked selected = false
   @tracked checkboxState = [false, false, false, false, false]
-  @tracked indeterminate = false
 
   parentCheckbox = () => {
       return document.getElementById('select-all');
     }
 
+    get files() {
+      //arguments passed from index.hbs @model.data
+      return this.args.files;
+    }
+
   @action download() {
+    let fileNames = this.files.reduce((acc, value, index) => {
+      if (this.checkboxState[index] && value.status === 'available') {
+        acc.push(value.device)
+      }
+      return acc;
+    //initial value is empty for the acc
+    }, []
+    )
 
-  if (this.status !== 'available') {
-    window.alert('Please select an available file to download')
+    if (fileNames.length === 0) {
+      window.alert('None of the files are available to download')
+    } else {
+    window.alert('You are about to download: ' + fileNames.join(', '));
+    }
   }
-  window.alert('You are about to download: ');
-}
-
 
   setIndeterminate = () =>  {
-    this.indeterminate = true;
     this.parentCheckbox().indeterminate = true;
   }
 
   resetIndeterminate = () => {
-    this.indeterminate = false;
     this.parentCheckbox().indeterminate = false;
   }
 
@@ -51,6 +61,8 @@ export default class FilesComponent extends Component {
       }
       return element;
     });
+    //if everything is selected manually, parent checkbox needs to be true state
+    this.selected = this.checkboxState.every(el => el === true)
   }
 
   //displaying number of selection + all or none
@@ -69,5 +81,14 @@ export default class FilesComponent extends Component {
     } else {
       return 'None selected';
     }
+  }
+
+  @computed('checkboxState')
+  get disableButton() {
+    //if elements are all false
+    if (this.checkboxState.every(el => !el)) {
+      return true
+    }
+    return false
   }
 }

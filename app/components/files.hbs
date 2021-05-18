@@ -7,10 +7,19 @@
     <col span="1" >
   </colgroup>
   <thead>
-    <tr>
-      <td><input type="checkbox"></td>
-      <td>Selected 0</td>
-      <td>Download Selected</td>
+    <tr class="selection-download-row">
+      <td><input type="checkbox" id="select-all" checked={{@selected}} {{on "click" this.selectAll}}></td>
+      <td>
+        {{this.count}}
+      </td>
+      <td>
+        <span>
+          <img alt="Download icon" src="assets/images/download.png">
+        </span>
+       <button {{on "click" this.download}}>
+        Download Selected
+       </button>
+      </td>
       <td colspan="2"></td>
     </tr>
     <tr>
@@ -21,9 +30,12 @@
       <th scope="col" >Status</th>
     </tr>
   </thead>
-  {{#each @files as |file|}}
-    <tr class="file-row">
-      <File @file={{file}} />
+  {{#each @files as |file index|}}
+    <tr class="file-row" >
+      <File @file={{file}} @toggle={{this.toggle}} @selected={{get checkboxState index}} @index={{index}} />
     </tr>
   {{/each}}
 </table>
+
+{{!-- {{log this.checkboxState.[index] 'checkbox'}} --}}
+{{!-- {{log this checkboxState 'test'}} --}}

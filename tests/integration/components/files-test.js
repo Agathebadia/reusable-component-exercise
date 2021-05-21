@@ -1,26 +1,24 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | files', function(hooks) {
+module('Integration | Component | Files', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it renders the table of files', async function(assert) {
+    assert.expect(1);
 
-    await render(hbs`<Files />`);
+    await render(hbs`<Files @files={{@model.data}} />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom('[data-test-table-component]').exists();
+  });
 
-    // Template block usage:
-    await render(hbs`
-      <Files>
-        template block text
-      </Files>
-    `);
+  test('it renders the row with parent checkbox and download option', async function(assert) {
+    assert.expect(1);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    await render(hbs`<Files @files={{@model.data}} />`);
+
+    assert.dom('[data-test-select-all-and-download]').exists();
   });
 });

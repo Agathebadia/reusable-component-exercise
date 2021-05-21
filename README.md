@@ -1,7 +1,10 @@
 # reusable-component-exercise
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Please follow the installation/running and testing steps below to run the application.
+
+- This exercise was done using Ember Octane v.3.19.0 
+- This component has been checked for color contrast, tab navigation and screen readers - Manual tests & Axe DevTool tested ✔️
+- It uses [Ember Test Selectors](https://github.com/simplabs/ember-test-selectors) - e.g. `data-test-element` that are implemented on `.hbs files` and later on called on `acceptance tests` 
 
 ## Prerequisites
 

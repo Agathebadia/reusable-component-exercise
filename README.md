@@ -2,7 +2,7 @@
 
 Please follow the installation/running and testing steps below to run the application.
 
-- This exercise was done using Ember Octane v.3.19.0 
+- Ember Octane v.3.19.0 
 
 __Accessibility__
 

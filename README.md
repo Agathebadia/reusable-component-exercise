@@ -3,7 +3,19 @@
 Please follow the installation/running and testing steps below to run the application.
 
 - This exercise was done using Ember Octane v.3.19.0 
-- This component has been checked for color contrast, tab navigation and screen readers - Manual tests & Axe DevTool tested ✔️
+
+__Accessibility__
+
+This component is accessible for:
+- Tab navigation 
+- Screen readers 
+- Color contrast
+
+Through manual testing & Axe DevTool ✔️
+
+__Testing__
+
+- Integration tests & Acceptance tests have been created
 - It uses [Ember Test Selectors](https://github.com/simplabs/ember-test-selectors) - e.g. `data-test-element` that are implemented on `.hbs files` and later on called on `acceptance tests` 
 
 ## Prerequisites

@@ -19,7 +19,7 @@ export default class FilesComponent extends Component {
   @action download() {
     let fileNames = this.files.reduce((acc, value, index) => {
       if (this.checkboxState[index] && value.status === 'available') {
-        acc.push(value.device)
+        acc.push(value.device) + acc.push(value.path)
       }
       return acc;
     //initial value is empty for the acc

@@ -1,38 +1,36 @@
-<table>
-  <colgroup>
-    <col>
-    <col span="1" >
-    <col span="1" >
-    <col span="1" >
-    <col span="1" >
+<table data-test-table-component aria-label="component table">
+  <colgroup >
+    <col aria-hidden="true">
+    <col span="1" aria-hidden="true" >
+    <col span="1" aria-hidden="true" >
+    <col span="1" aria-hidden="true" >
+    <col span="1" aria-hidden="true" >
   </colgroup>
   <thead>
-    <tr class="selection-download-row">
-      <td><input type="checkbox" id="select-all" checked={{this.selected}} {{on "click" this.selectAll}}></td>
-      <td>
+    <tr class="selection-download-row" data-test-select-all-and-download>
+      <td><input aria-label="select all files" type="checkbox" id="select-all" checked={{this.selected}} {{on "click" this.selectAll}}></td>
+      <td class="selection-label" data-test-selection-status>
         {{this.count}}
       </td>
       <td>
         <span>
           <img alt="Download icon" src="assets/images/download.png">
         </span>
-       <button disabled={{this.disableButton}} {{on "click" this.download}}>
+       <button type="button" disabled={{this.disableButton}} {{on "click" this.download}} data-test-download-button>
         Download Selected
        </button>
       </td>
       <td colspan="2"></td>
     </tr>
     <tr>
-      <th scope="col" ></th>
-      <th scope="col" >Name</th>
-      <th scope="col" >Device</th>
-      <th scope="col" >Path</th>
-      <th scope="col" >Status</th>
+      <th scope="col" aria-hidden="true" ></th>
+      <th scope="col" aria-hidden="true" >Name</th>
+      <th scope="col" aria-hidden="true" >Device</th>
+      <th scope="col" aria-hidden="true" >Path</th>
+      <th scope="col" aria-hidden="true" >Status</th>
     </tr>
   </thead>
   {{#each @files as |file index|}}
-    <tr class="file-row" >
-      <File @file={{file}} @toggle={{this.toggle}} @selected={{get checkboxState index}} @index={{index}} />
-    </tr>
+    <File @file={{file}} @toggle={{this.toggle}} @selected={{get checkboxState index}} @index={{index}} />
   {{/each}}
 </table>

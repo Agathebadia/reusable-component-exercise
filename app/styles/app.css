@@ -3,11 +3,15 @@
 }
 
 table {
-  border: 1px solid rgb(105, 104, 104);
+  border: 1px solid #dbd3d3;
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
-  padding: ;
+  background-color: #ffffff;
+  box-shadow:  3px 3px 5px 6px #f1f0f0;
+}
+
+td, th {
+  border-bottom: 1px solid #dbd3d3;
 }
 
 th {
@@ -16,22 +20,23 @@ th {
 }
 
 td {
-  padding: 5px 0 5px 0;
+  padding: 0.5em 0 0.5em 0;
   margin: 10px;
-  border-color: aquamarine;
 }
 
 tr.file-row:hover {
-  background-color: lightblue;
+  background-color: #d7e2e6;
 }
 
-tr.file-row:checked {
+tr.selected.file-row  {
+  /* WIP */
   background-color: red;
-  color: red;
+  font-size: 50px;
 }
+
 
 tr.selection-download-row {
-  border-color: rgb(196, 224, 215);
+  border-color: #dbd3d3;
 }
 
 button {
@@ -41,7 +46,7 @@ button {
 
 button:hover, button:focus {
   cursor: pointer;
-  background-color: rgb(190, 184, 184);
+  background-color: #dbd3d3;
   border-radius: 2px;
 }
 

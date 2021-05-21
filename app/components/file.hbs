@@ -1,9 +1,7 @@
-  <td>
-    <input type="checkbox" checked={{@selected}} name="child-checkbox"  role="checkbox" {{on "click" (fn @toggle @index @selected)}} >
-  </td>
-  <td class="names">{{@file.name}}</td>
-  <td class="devices">{{@file.device}}</td>
-  <td class="paths smaller-font">{{@file.path}}</td>
-  <td class="statuses">{{@file.status}}</td>
-
-{{log @index}}
+<td>
+  <input type="checkbox" checked={{@selected}} id="child-checkbox"  role="checkbox" {{on "click" (fn @toggle @index @selected true)}} data-test-file-checkbox >
+</td>
+<td data-test-file-name>{{@file.name}}</td>
+<td data-test-file-device>{{@file.device}}</td>
+<td data-test-file-path>{{@file.path}}</td>
+<td data-test-file-status>{{@file.status}}</td>
